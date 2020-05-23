@@ -8,6 +8,7 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * 异步任务
  * @author zjdking
  * 2020/5/19 0019.
  * @version 1.0
