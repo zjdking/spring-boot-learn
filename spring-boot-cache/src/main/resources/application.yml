@@ -1,0 +1,51 @@
+server:
+  port: 9527
+
+
+mybatis:
+  #configuration:
+   # map-underscore-to-camel-case: true                      # 开启驼峰命名  他和下边的指定配置文件，两个不能同时使用
+  config-location: classpath:mybatis/mybatis.cfg.xml        # mybatis配置文件所在路径
+  type-aliases-package: com.cn.zj.domain    # 所有Entity别名类所在包
+  mapper-locations:
+    - classpath:mybatis/mapper/**/*.xml                       # mapper映射文件  也就是dao对应的xml文件
+
+
+spring:
+#  application:
+#    name: microservicecloud-dept                           # 对外暴露的微服务的名字
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource            # 当前数据源操作类型
+    driver-class-name: org.gjt.mm.mysql.Driver              # mysql驱动包
+    url: jdbc:mysql://139.9.95.160:3306/bxy              # 数据库名称
+    username: root
+    password: root
+    dbcp2:
+      min-idle: 5                                           # 数据库连接池的最小维持连接数
+      initial-size: 5                                       # 初始化连接数
+      max-total: 5                                          # 最大连接数
+      max-wait-millis: 200                                  # 等待连接获取的最大超时时间
+##redis 配置
+  redis:
+    database: 0                     #Redis数据库索引（默认为0）
+    host: 139.9.95.160
+    port: 6379
+    password:
+    timeout: 0                      #连接超时时间
+    pool:
+      max-active: 8                 #最大连接数
+      max-wait: -1                  #最大阻塞等待时间
+      max-idle: 8                   #最大空闲等待时间
+      min-idle: 0
+logging:
+  level:
+    com.cn.zj: debug                                      #开启打印sql
+
+
+#debug: true                                              #打开自动配置报告
+
+
+
+
+
+

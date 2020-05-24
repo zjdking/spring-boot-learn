@@ -1,2 +1,9 @@
 server:
   port: 9527
+
+spring:
+  task:
+    scheduling:
+      pool:
+        size: 10
+      thread-name-prefix: task-scheduled
