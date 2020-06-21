@@ -1,0 +1,29 @@
+server:
+  port: 8001
+#server-addr: ${NACOS-HOST:139.9.95.160}:${NACOS-PORT:8848}
+spring:
+  application:
+    name: bank1-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${NACOS-HOST:127.0.0.1}:${NACOS-PORT:8848}
+      config:
+        server-addr: ${spring.cloud.nacos.discovery.server-addr} #Nacos地址
+        file-extension: yaml #这里我们获取的yaml格式的配置
+        group: DEV_ENV
+    sentinel:
+      transport:
+        dashboard: ${SENTINEL-HOST:127.0.0.1}:${SENTINEL-PORT:8080} #配置sentinel dashboard地址
+        port: 8219
+    alibaba:
+      seata:
+        tx-service-group: bank_tx_group
+
+mybatis:
+  #configuration:
+  # map-underscore-to-camel-case: true                      # 开启驼峰命名  他和下边的指定配置文件，两个不能同时使用
+  config-location: classpath:mybatis/mybatis.cfg.xml        # mybatis配置文件所在路径
+  type-aliases-package: com.cn.zj.domain    # 所有Entity别名类所在包
+  mapper-locations:
+    - classpath:mybatis/mapper/**/*.xml                       # mapper映射文件  也就是dao对应的xml文件
