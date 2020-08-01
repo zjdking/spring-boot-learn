@@ -10,6 +10,8 @@
         <module>spring-boot-es</module>
         <module>spring-boot-fastdfs</module>
         <module>spring-alibaba-seata</module>
+        <module>zookeeper-lock</module>
+        <module>redis-lock</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
